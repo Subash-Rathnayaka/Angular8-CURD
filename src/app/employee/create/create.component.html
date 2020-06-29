@@ -1,0 +1,50 @@
+<div class="container">
+    <h1>Create New Employee</h1>
+  
+    <a href="#" routerLink="/Employee/index" class="btn btn-primary">Back</a>
+        
+    <form [formGroup]="form" (ngSubmit)="submit()">
+  
+        <div class="form-group">
+            <label for="employee_name">Employee Name:</label>
+            <input 
+                formControlName="employee_name"
+                id="employee_name" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f.employee_name.touched && f.employee_name.invalid" class="alert alert-danger">
+                <div *ngIf="f.employee_name.errors.required">Employee name is required.</div>
+            </div>
+        </div>
+        
+  
+        <div class="form-group">
+            <label for="body">Employee Salary</label>
+            <input 
+                formControlName="employee_salary"
+                id="employee_salary" 
+                type="text" 
+                class="form-control">
+            
+            <div *ngIf="f.employee_salary.touched && f.employee_salary.invalid" class="alert alert-danger">
+                <div *ngIf="f.employee_salary.errors.required">Employee salary is required.</div>
+            </div>
+        </div>
+
+
+  
+            <div class="form-group">
+                <label for="employee_age">Employee Age:</label>
+                <input 
+                    formControlName="employee_age"
+                    id="employee_age" 
+                    type="text" 
+                    class="form-control">
+                <div *ngIf="f.employee_age.touched && f.employee_age.invalid" class="alert alert-danger">
+                    <div *ngIf="f.employee_age.errors.required">Employee age is required.</div>
+                </div>
+            </div>
+  
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
